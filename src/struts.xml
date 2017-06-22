@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="struts" extends="struts-default">
+    <interceptors>
+    	<interceptor name="add" class="interceptor.MessageInterceptor"></interceptor>
+    </interceptors>
+        <action name="login" class="action.Login" ><!--定义login action  -->
+            <result name="success">/main.jsp</result>
+            <result name="error">/error.jsp</result>
+            <result name = "input">/login.jsp</result>
+        </action>
+         <action name="register" class="action.Register" ><!--定义register action  -->
+            <result name="success">/login.jsp</result>
+             <result name = "input">/register.jsp</result>
+             <result name="error">/error.jsp</result>
+        </action>
+        <action name = "addLy" class="action.AddLy">
+        	 <result name="success">/ok.jsp</result>
+             <result name = "error">/error.jsp</result>
+             <result name = "errorTitle">/errorTitle.jsp</result>
+             <interceptor-ref name="defaultStack"></interceptor-ref>
+             <interceptor-ref name="add"></interceptor-ref>
+        </action>
+    </package>
+    <constant name="struts.custom.i18n.resources" value="messgageResource"/>
+</struts>
